@@ -39,16 +39,55 @@ public class TankFrame extends Frame {
 
     class MyKeyListener extends KeyAdapter{
 
+        boolean bT = false;
+        boolean bU = false;
+        boolean bR = false;
+        boolean bD = false;
 
         @Override
         //键盘被按下去的时候调用
         public void keyPressed(KeyEvent e) {
 
+            int key = e.getKeyCode(); //按的是那个键
+            switch (key){
+                case KeyEvent.VK_LEFT:
+                    bT = true;
+                    break;
+                case KeyEvent.VK_UP:
+                    bU = true;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    bR = true;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    bD = true;
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         @Override
         //键盘弹起来的时候被调用
         public void keyReleased(KeyEvent e) {
+            int key = e.getKeyCode();
+            switch (key){
+                case KeyEvent.VK_LEFT:
+                    bT = false;
+                    break;
+                case KeyEvent.VK_UP:
+                    bU = false;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    bR = false;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    bD = false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
